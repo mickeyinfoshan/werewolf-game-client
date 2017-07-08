@@ -1,0 +1,57 @@
+<!--gamedetail.wxml-->
+<import src="../../components/gameplace/gameplace.wxml" />
+<view class="container game-detail-container">
+  <template is="place" />
+  <view class="block-label-wrapper">
+    <text class="block-label">组局信息</text>
+  </view>
+  <view class="block-wrapper has-shadow-block">
+    <view class="detail-info-row">
+      <view class="detail-info-col">
+        <text class="detail-info-label">负责人: </text>
+        <view class="detail-info-value">
+            <image src="{{userAvatar}}" class="charge-avatar"></image>
+            Mr. 蒋
+        </view>
+      </view>
+      <view class="detail-info-col">
+        <text class="detail-info-label">时间: </text>
+        <view class="detail-info-value">2017.7.1 13:00</view>
+      </view>
+    </view>
+    <view class="detail-info-row">
+      <view class="detail-info-col">
+        <text class="detail-info-label">费用: </text>
+        <view class="detail-info-value">30</view>
+      </view>
+      <view class="detail-info-col">
+        <text class="detail-info-label">游戏配置: </text>
+        <view class="detail-info-value">玉女冽白</view>
+      </view>
+    </view>
+  </view>
+  <view class="block-label-wrapper">
+    <text class="block-label">演员表</text>
+    <text class="block-label">10/12</text>
+  </view>
+  <view class="block-wrapper has-shadow-block player-list">
+    <view class="player-item" wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}">
+      <view class="player-avatar-wrapper">
+        <image src="{{userAvatar}}" class="player-avatar"></image>
+      </view>
+      <view class="player-info-wrapper">
+        <view class="player-name">mickey</view>
+        <text class="player-gender gender-male">♂</text>
+      </view>
+    </view>
+  </view>
+  <view class="block-label-wrapper">
+    <text class="block-label">活动公告</text>
+  </view>
+  <view class="block-wrapper has-shadow-block block-announcement">
+    <text class="announcement-text">Bla bla bla...</text>
+  </view>
+  <view class="action-button">
+    <text class="action-button-text">我要参加</text>
+  </view>
+</view>

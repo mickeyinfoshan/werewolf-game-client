@@ -1,0 +1,57 @@
+/* self.wxss */
+
+.self-info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 8em;
+    /*background-color: rgb(44, 152, 240);*/
+    background-color: #333;
+    position: relative;
+    padding-bottom: 2em;
+    background-image: url(http://media02.hongkiat.com/dark-wallpapers-2012/Mystery-Face.jpg);
+    border-bottom: solid 0.1em #ddd;
+    margin-bottom: 0.3em;
+}
+
+.self-avatar{
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+}
+
+.self-nickname {
+    color: #fff;
+    margin-top: 1em;
+    font-size: 0.9em;
+}
+
+.tabs {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    height: 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.tab {
+    color: #fff;
+    flex: 1;
+    text-align: center;
+    font-size: 0.75em;
+    opacity: 0.5;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.tab.selected {
+    opacity: 1;
+}

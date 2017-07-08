@@ -1,0 +1,12 @@
+<template name="place">
+  <!--样式在app.wxss-->
+  <view class="game-place has-shadow-block">
+    <view class="place-img-wrapper">
+      <image src="https://images-fe.ssl-images-amazon.com/images/I/51OWg-zsNHL._AC_US160_.jpg" class="place-img"></image>
+    </view>
+    <view class="place-text-wrapper">
+      <text class="place-intro">场地简介</text>
+      <text class="place-address">场地地址</text>
+    </view>
+  </view>
+</template>

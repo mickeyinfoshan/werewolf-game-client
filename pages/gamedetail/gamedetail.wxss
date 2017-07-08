@@ -1,0 +1,119 @@
+/* gamedetail.wxss */
+
+.action-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(44, 152, 240);
+    height: 2.2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-button-text {
+    color: #fff;
+}
+
+.game-detail-container {
+    padding-bottom: 3em;
+}
+
+.block-wrapper {
+    background-color: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.detail-info-row {
+    height: 2.2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.detail-info-col {
+    flex: 1;
+}
+
+.detail-info-label {
+    font-size: 0.7em;
+    color: #999;
+    margin-right: 0.3em;
+}
+
+.detail-info-value {
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.block-label-wrapper {
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.block-label {
+    font-size: 0.75em;
+    color: #aaa;
+}
+
+.player-list {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+}
+
+.player-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 5em;
+}
+
+.player-avatar {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+}
+
+.player-name {
+    font-size: 13px;
+    color: #999;
+    max-width: 4.5em;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.player-gender {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.gender-male {
+    color: rgb(65, 180, 243);
+}
+
+.block-announcement {
+    padding: 10px 20px;
+}
+
+.announcement-text {
+    font-size: 14px;
+    color: #999;
+}
+
+.charge-avatar {
+    width: 1.6em;
+    height: 1.6em;
+    border-radius: 50%;
+}

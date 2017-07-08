@@ -1,0 +1,15 @@
+<!--self.wxml-->
+<import src="../../components/gameitem/gameitem.wxml" />
+<view class="container">
+  <view class="self-info-block">
+    <image src="{{userInfo.avatarUrl}}" class="self-avatar"></image>
+    <text class="self-nickname">{{userInfo.nickName}}</text>
+    <view class="tabs">
+      <view class="tab selected">参加的活动</view>
+      <view class="tab">发起的活动</view>
+    </view>
+  </view>
+    <scroll-view class="has-shadow-block">
+      <template is="item" wx:for="{{[1,2,3]}}" />
+    </scroll-view>
+</view>

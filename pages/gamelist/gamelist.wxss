@@ -1,0 +1,103 @@
+/* gamelist.wxss */
+
+.header, .bottom-tip-wrapper {
+  height: 1.8em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  display: flex;
+}
+
+.header {
+  background-color: #000;
+  color: #fff;
+}
+
+.header-text {
+  font-size: 0.75em;
+}
+
+.bottom-tip {
+  font-size: 0.7em;
+  color: #aaa;
+}
+
+.place-list {
+  background: rgba(256, 256, 256, 0.9);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  max-height: 10em;
+  overflow-y: auto;
+  display: none;
+  z-index: 9;
+}
+
+.place-list-item {
+  height: 2em;
+  border-bottom: solid 0.1em #ddd;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.place-list-item-text {
+  font-size: 0.75em;
+  color: #333;
+  line-height: 1;
+}
+
+.selected-icon {
+  position: absolute;
+  right: 10px;
+}
+
+.avatar-wrapper {
+  position: absolute;
+  left: 10px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  top: 0;
+  display: flex;
+}
+
+.avatar {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+}
+
+.game-list {
+  z-index: 1;
+}
+
+.body {
+  flex: 1;
+}
+
+.add-button {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  background-color: rgb(44, 152, 240);
+  width: 3em;
+  height: 3em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 1px #aaa;
+}
+
+.add-button-text {
+  color: #fff;
+  font-size: 2em;
+  display: inline-flex;
+  margin-top: 2px;
+  font-weight: bold;
+}

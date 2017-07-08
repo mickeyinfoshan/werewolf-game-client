@@ -1,0 +1,14 @@
+{
+    "pages": [
+        "pages/self/self",
+        "pages/gamelist/gamelist",
+        "pages/gamedetail/gamedetail",
+        "pages/index/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarTitleText": "狼人杀组局小程序",
+        "navigationBarTextStyle": "white"
+    }
+}

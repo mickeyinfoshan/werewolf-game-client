@@ -5,6 +5,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    this.getUserInfo()
   },
 
   getUserInfo: function(cb) {
@@ -23,7 +24,16 @@ App({
     }
   },
 
+  requestFailed: function() {
+    console.log("网络请求失败")
+    wx.showToast({
+      title: '请求失败',
+      icon: 'loading',
+    })
+  },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    apiHost: "",
   }
 })

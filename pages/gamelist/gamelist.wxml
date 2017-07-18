@@ -3,11 +3,16 @@
 <import src="../../components/gameplace/gameplace.wxml" />
 <view class="container">
   <view class="header">
-    <view class="avatar-wrapper">
+    <view class="avatar-wrapper" bindtap="toSelfPage">
       <image src="{{userAvatar}}" class="avatar"></image>
     </view>
-    <text class="header-text">123茶楼</text>
-    <view class="place-list">
+    <view class="header-text" bindtap="toggleAreaList">
+        {{selectedArea.area_name || "暂无数据"}}
+        <text wx:if="{{!showAreaList}}">▾</text>
+        <text wx:if="{{showAreaList}}">▴</text>
+
+    </view>
+    <view class="place-list" wx:if="{{showAreaList && areas.length > 0}}">
       <view class="place-list-item">
         <text class="place-list-item-text">123茶楼</text>
         <icon type="success_no_circle" class="selected-icon" />
@@ -23,13 +28,13 @@
   <view class="body">
     <template is="place" />
     <scroll-view class="game-list has-shadow-block">
-      <template is="item" wx:for="{{[1,2,3]}}" />
+      <template is="item" wx:for="{{[1,2,3]}}"/>
     </scroll-view>
     <view class="bottom-tip-wrapper">
       <text class="bottom-tip">—— 已经到底啦 ——</text>
     </view>
   </view>
-  <view class="add-button">
+  <view class="add-button" bindtap="toAddGamePage">
       <text class="add-button-text">+</text>
   </view>
 </view>

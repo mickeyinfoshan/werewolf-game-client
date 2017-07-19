@@ -25,7 +25,7 @@
 }
 
 .place-list {
-  background: rgba(256, 256, 256, 0.9);
+  background: rgba(0, 0, 0, 0.75);
   width: 100%;
   position: absolute;
   left: 0;
@@ -33,11 +33,12 @@
   max-height: 10em;
   overflow-y: auto;
   z-index: 9;
+  color: #fff;
 }
 
 .place-list-item {
   height: 2em;
-  border-bottom: solid 0.1em #ddd;
+  border-bottom: solid 0.1em #000;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -46,7 +47,7 @@
 
 .place-list-item-text {
   font-size: 0.75em;
-  color: #333;
+  color: #fff;
   line-height: 1;
 }
 

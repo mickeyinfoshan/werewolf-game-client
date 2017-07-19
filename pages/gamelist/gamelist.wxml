@@ -13,20 +13,14 @@
 
     </view>
     <view class="place-list" wx:if="{{showAreaList && areas.length > 0}}">
-      <view class="place-list-item">
-        <text class="place-list-item-text">123茶楼</text>
-        <icon type="success_no_circle" class="selected-icon" />
-      </view>
-      <view class="place-list-item">
-        <text class="place-list-item-text">杭丝联</text>
-      </view>
-      <view class="place-list-item">
-        <text class="place-list-item-text">滨江</text>
+      <view class="place-list-item" wx:for="{{areas}}" wx:key="{{item.area_id}}" data-area="{{item}}" bindtap="selectArea" >
+        <text class="place-list-item-text">{{item.area_name}}</text>
+        <icon type="success_no_circle" class="selected-icon" wx:if="{{selectedArea && selectedArea.area_id === item.area_id}}" />
       </view>
     </view>
   </view>
   <view class="body">
-    <template is="place" />
+    <template is="place" wx:if="{{selectedArea}}" data="{{...selectedArea, introTruncate}}" />
     <scroll-view class="game-list has-shadow-block">
       <template is="item" wx:for="{{[1,2,3]}}"/>
     </scroll-view>

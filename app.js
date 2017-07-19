@@ -34,6 +34,6 @@ App({
 
   globalData: {
     userInfo: null,
-    apiHost: "",
+    apiHost: "https://202.91.248.189:8443/api-neuclub/api",
   }
 })

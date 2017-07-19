@@ -2,11 +2,20 @@
   <!--样式在app.wxss-->
   <view class="game-place has-shadow-block">
     <view class="place-img-wrapper">
-      <image src="https://images-fe.ssl-images-amazon.com/images/I/51OWg-zsNHL._AC_US160_.jpg" class="place-img"></image>
+      <image src="{{area_image}}" class="place-img"></image>
     </view>
     <view class="place-text-wrapper">
-      <text class="place-intro">场地简介</text>
-      <text class="place-address">场地地址</text>
+        <text class="place-address">{{area_address}}</text>
+        <view class="place-intro {{introTruncate?'place-intro-truncate':''}}" bindtap="togglePlaceIntroTruncate">
+            <view class="text">{{area_description}}</view>
+            <view class="place-intro-truncate-toggle-btn" wx:if="{{!introTruncate}}" >
+                收起
+            </view>
+            <view class="place-intro-truncate-toggle-btn" wx:if="{{introTruncate}}">
+                展开
+            </view>
+        </view>
+        
     </view>
   </view>
 </template>

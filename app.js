@@ -35,5 +35,47 @@ App({
   globalData: {
     userInfo: null,
     apiHost: "https://202.91.248.189:8443/api-neuclub/api",
-  }
+    openID: "",
+  },
+  initGameItem: function(item) {
+    let startTime = new Date(item.start_time);
+    let createTime = new Date(item.create_time);
+    let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth() + 1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
+    let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
+    return Object.assign({}, item, { startTimeDisplay, createTimeDisplay })
+  },
+  toGameDetail: function (e) {
+    let {
+          gameid
+        } = e.currentTarget.dataset
+    console.log(e.currentTarget.dataset)
+    wx.navigateTo({
+      url: '../gamedetail/gamedetail?id=' + gameid,
+    })
+  },
+  request: function(options) {
+      wx.showLoading({
+        title: '加载中',
+      })
+      let that = this;
+      let success = res => {
+          let {
+            code,
+            data
+          } = res.data
+          if(code != "0") {
+            that.requestFailed()
+            return
+          }
+          wx.hideLoading()
+          return options.success && options.success(data)
+      }
+      let fail = e => {
+        that.requestFailed()
+        return options.fail && options.fail(e)
+      }
+      let url = this.globalData.apiHost + options.url
+      let reqOptions = Object.assign({}, options, {success, fail, url})
+      return wx.request(reqOptions)
+  },
 })

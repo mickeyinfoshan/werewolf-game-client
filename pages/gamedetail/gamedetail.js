@@ -8,6 +8,9 @@ Page({
    */
   data: {
     userAvatar: "",
+    gameDetail: null,
+    area: null,
+    introTruncate: true,
   },
 
   /**
@@ -19,6 +22,16 @@ Page({
             userAvatar: userInfo.avatarUrl,
         })
     })
+    let {
+      id
+    } = options
+    if(!id && id !== 0) {
+      wx.redirectTo({
+        url: '../gamelist/gamelist',
+      })
+    }
+    this.gameID = id
+    this.fetchGameDetail()
   },
 
   /**
@@ -68,5 +81,36 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  fetchGameDetail: function() {
+    let that = this
+    app.request({
+      url: `/games/${this.gameID}`,
+      data: {
+        open_id: "TODO:setopen_id",
+      },
+      success: data => {
+        that.fetchAreaInfo(data.area_id)
+        that.setData({
+          gameDetail: data,
+        })
+      },
+    })
+  },
+  fetchAreaInfo: function(areaID) {
+    let that = this;
+    app.request({
+      url: `/areas/${areaID}`,
+      success: data => {
+        that.setData({
+          area: data
+        })
+      }
+    })
+  },
+  togglePlaceIntroTruncate: function () {
+    this.setData({
+      introTruncate: !this.data.introTruncate
+    })
+  },
 })

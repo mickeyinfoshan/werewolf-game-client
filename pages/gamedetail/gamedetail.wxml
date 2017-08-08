@@ -1,7 +1,7 @@
 <!--gamedetail.wxml-->
 <import src="../../components/gameplace/gameplace.wxml" />
 <view class="container game-detail-container">
-  <template is="place" />
+  <template is="place" data="{{...area, introTruncate}}" />
   <view class="block-label-wrapper">
     <text class="block-label">组局信息</text>
   </view>
@@ -10,8 +10,8 @@
       <view class="detail-info-col">
         <text class="detail-info-label">负责人: </text>
         <view class="detail-info-value">
-            <image src="{{userAvatar}}" class="charge-avatar"></image>
-            Mr. 蒋
+            <image src="{{gameDetail.administer.user_avatar}}" class="charge-avatar"></image>
+            {{gameDetail.administer.user_name}}
         </view>
       </view>
       <view class="detail-info-col">
@@ -22,20 +22,20 @@
     <view class="detail-info-row">
       <view class="detail-info-col">
         <text class="detail-info-label">费用: </text>
-        <view class="detail-info-value">30</view>
+        <view class="detail-info-value">{{gameDetail.game_cost}}</view>
       </view>
       <view class="detail-info-col">
         <text class="detail-info-label">游戏配置: </text>
-        <view class="detail-info-value">玉女冽白</view>
+        <view class="detail-info-value">{{gameDetail.game_notification}}</view>
       </view>
     </view>
   </view>
   <view class="block-label-wrapper">
     <text class="block-label">演员表</text>
-    <text class="block-label">10/12</text>
+    <text class="block-label">{{gameDetail.entrances.length}}/12</text>
   </view>
   <view class="block-wrapper has-shadow-block player-list">
-    <view class="player-item" wx:for="{{[1,2,3,4,5,6,7,8,9,10]}}">
+    <view class="player-item" wx:for="{{gameDetail.entrances}}">
       <view class="player-avatar-wrapper">
         <image src="{{userAvatar}}" class="player-avatar"></image>
       </view>
@@ -49,7 +49,7 @@
     <text class="block-label">活动公告</text>
   </view>
   <view class="block-wrapper has-shadow-block block-announcement">
-    <text class="announcement-text">Bla bla bla...</text>
+    <text class="announcement-text">{{gameDetail.game_notification}}</text>
   </view>
   <view class="action-button">
     <text class="action-button-text">我要参加</text>

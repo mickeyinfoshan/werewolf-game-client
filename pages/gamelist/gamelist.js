@@ -55,26 +55,13 @@ Page({
 
     fetchAreas: function () {
         let that = this;
-        wx.showLoading({
-            title: '加载场地中...',
-            mask: true,
-        })
-        wx.request({
-            url: `${app.globalData.apiHost}/areas`,
-            success: res => {
-                console.log(res.data)
-                wx.hideLoading()
-                let {
-                    code,
-                    data,
-                } = res.data
+        app.request({
+            url: `/areas`,
+            success: data => {
                 let {
                     selectedArea
                 } = that.data
-                if(code != "0") {
-                    app.requestFailed();
-                    return
-                }
+                
                 selectedArea = data.filter(area=>{
                     if(!selectedArea) {
                         return true
@@ -87,12 +74,10 @@ Page({
                 })
                 that.fetchGames()
             },
-            fail: app.requestFailed,
         })
     },
 
     fetchGames: function () {
-        console.log("fetch games")
         let that = this;
         let {
             selectedArea
@@ -100,26 +85,13 @@ Page({
         if(!selectedArea) {
             return
         }
-        wx.showLoading({
-            title: '加载场次中...',
-            mask: true,
-        })
-        wx.request({
-            url: `${app.globalData.apiHost}/games?inRegister=1&area_id=${selectedArea.area_id}&open_id=123`,
-            success: res => {
-                console.log(res.data)
-                wx.hideLoading()
+        app.request({
+            url: `/games?inRegister=1&area_id=${selectedArea.area_id}&open_id=123`,
+            success: data => {
                 that.setData({
-                    games: res.data.data.map(item => {
-                        let startTime = new Date(item.start_time);
-                        let createTime = new Date(item.create_time);
-                        let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth()+1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
-                        let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
-                        return Object.assign({}, item, { startTimeDisplay, createTimeDisplay})
-                    }),
+                    games: data.map(app.initGameItem),
                 })
             },
-            fail: app.requestFailed,
         })
     },
 
@@ -182,12 +154,7 @@ Page({
             url: '../addgame/addgame',
         })
     },
-    toGameDetail: function (game) {
-        wx.navigateTo({
-            url: '../gamedetail/gamedetail?id=' + game.game_id,
-        })
-    },
-
+    toGameDetail: app.toGameDetail,
     togglePlaceIntroTruncate: function() {
         this.setData({
             introTruncate: !this.data.introTruncate

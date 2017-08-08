@@ -1,6 +1,6 @@
 <template name="item">
   <!--样式在app.wxss-->
-  <view class="game-item" bindtap="toGameDetail">
+  <view class="game-item" bindtap="toGameDetail" data-gameid="{{game_id}}">
     <view class="game-img-wrapper">
       <image src="https://images-fe.ssl-images-amazon.com/images/I/51OWg-zsNHL._AC_US160_.jpg" class="game-img"></image>
     </view>

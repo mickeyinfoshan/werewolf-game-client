@@ -22,7 +22,7 @@
   <view class="body">
     <template is="place" wx:if="{{selectedArea}}" data="{{...selectedArea, introTruncate}}" />
     <scroll-view class="game-list has-shadow-block">
-      <template is="item" wx:for="{{[1,2,3]}}"/>
+      <template is="item" wx:for="{{games}}" wx:key="{{item.game_id}}" data="{{...item}}"/>
     </scroll-view>
     <view class="bottom-tip-wrapper">
       <text class="bottom-tip">—— 已经到底啦 ——</text>

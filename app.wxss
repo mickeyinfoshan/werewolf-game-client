@@ -53,7 +53,7 @@
 }
 
 .game-name {
-    font-size: 0.9em;
+    font-size: 15px;
 }
 
 .game-time {
@@ -84,7 +84,7 @@
 }
 
 .game-price {
-    font-size: 0.8em;
+    font-size: 14px;
     color: #666;
 }
 

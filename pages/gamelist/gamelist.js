@@ -37,7 +37,7 @@ Page({
             selectedArea: area,
             showAreaList: false,
         })
-        this.fetchGames();
+        this.fetchGames()
     },
 
     getHeaderText: function () {
@@ -85,27 +85,39 @@ Page({
                     areas: data,
                     selectedArea: selectedArea,
                 })
+                that.fetchGames()
             },
             fail: app.requestFailed,
         })
     },
 
     fetchGames: function () {
+        console.log("fetch games")
         let that = this;
-        wx.showLoading({
-            title: '加载场次中...',
-            mask: true,
-        })
         let {
             selectedArea
         } = this.data
         if(!selectedArea) {
             return
         }
+        wx.showLoading({
+            title: '加载场次中...',
+            mask: true,
+        })
         wx.request({
-            url: `${app.globalData.apiHost}/games?inRegister=1&area_id=${selectedArea.area_id}`,
+            url: `${app.globalData.apiHost}/games?inRegister=1&area_id=${selectedArea.area_id}&open_id=123`,
             success: res => {
+                console.log(res.data)
                 wx.hideLoading()
+                that.setData({
+                    games: res.data.data.map(item => {
+                        let startTime = new Date(item.start_time);
+                        let createTime = new Date(item.create_time);
+                        let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth()+1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
+                        let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
+                        return Object.assign({}, item, { startTimeDisplay, createTimeDisplay})
+                    }),
+                })
             },
             fail: app.requestFailed,
         })

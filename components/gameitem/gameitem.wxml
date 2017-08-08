@@ -6,19 +6,19 @@
     </view>
     <view class="game-text-wrapper">
       <view class="game-text-left">
-        <text class="game-name">活动名称</text>
-        <text class="game-time">活动时间</text>
+        <text class="game-name">{{game_title}}</text>
+        <text class="game-time">{{startTimeDisplay}}</text>
         <view class="game-players">
           <text class="game-players-label">活动人数: </text>
           <view class="game-playlers-number">
-            <text class="game-players-in-green">10</text>
-            <text>/12</text>
+            <text class="game-players-in-green">{{entrances.length}}</text>
+            <text>/{{member_count}}</text>
           </view>
         </view>
       </view>
       <view class="game-text-right">
-        <text class="game-price">费用</text>
-        <text class="game-publish-time">发布时间</text>
+        <text class="game-price">￥{{game_cost}}</text>
+        <text class="game-publish-time">{{createTimeDisplay}}</text>
       </view>
     </view>
   </view>

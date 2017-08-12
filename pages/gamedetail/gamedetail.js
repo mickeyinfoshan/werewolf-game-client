@@ -7,10 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userAvatar: "",
+    userInfo: null,
     gameDetail: null,
     area: null,
     introTruncate: true,
+    hasEntrance: false,
+    nickName: "",
   },
 
   /**
@@ -18,8 +20,10 @@ Page({
    */
   onLoad: function (options) {
     app.getUserInfo(userInfo=>{
+        console.log(userInfo)
         this.setData({
-            userAvatar: userInfo.avatarUrl,
+            userInfo,
+            // nickName: userInfo.nickName,
         })
     })
     let {
@@ -113,4 +117,30 @@ Page({
       introTruncate: !this.data.introTruncate
     })
   },
+  entranceAction: function() {
+      let data = {
+          game_id: this.gameID,
+          status: 1,
+          nick_name: this.data.nickName.length > 0 ? this.data.nickName : this.data.userInfo.nickName,
+      }
+      console.log(data)
+        app.requestWithOpenID({
+            url: "/entrances",
+            method: "post",
+            data,
+            success: () => {
+                wx.showToast({
+                    title: '报名成功',
+                })
+                this.fetchGameDetail()
+            }
+        })
+  },
+
+  onNickNameChanged: function(e) {
+      this.setData({
+          nickName: e.detail.value,
+      })
+      return e.detail.value
+  }
 })

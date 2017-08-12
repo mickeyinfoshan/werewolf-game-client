@@ -1,15 +1,28 @@
 <!--self.wxml-->
 <import src="../../components/gameitem/gameitem.wxml" />
 <view class="container">
-  <view class="self-info-block">
-    <image src="{{userInfo.avatarUrl}}" class="self-avatar"></image>
-    <text class="self-nickname">{{userInfo.nickName}}</text>
-    <view class="tabs">
-      <view class="tab selected">参加的活动</view>
-      <view class="tab">发起的活动</view>
+    <view class="self-info-block">
+        <image src="{{userInfo.avatarUrl}}" class="self-avatar"></image>
+        <text class="self-nickname">{{userInfo.nickName}}</text>
+        <view class="tabs">
+            <view class="tab {{mode=='entrance'?'selected':''}}" bindtap="setModeEntrance">参加的活动</view>
+            <view class="tab {{mode=='created'?'selected':''}}" bindtap="setModeCreated">发起的活动</view>
+        </view>
     </view>
-  </view>
-    <scroll-view class="has-shadow-block">
-      <template is="item" wx:for="{{[1,2,3]}}" />
-    </scroll-view>
+    <view wx:if="{{mode=='entrance'}}">
+        <view class="empty-text" wx:if="{{entranceGames.length == 0}}">
+            不存在的
+        </view>
+        <scroll-view class="has-shadow-block" wx:if="{{entranceGames.length > 0}}">
+            <template is="item" wx:for="{{entranceGames}}" />
+        </scroll-view>
+    </view>
+    <view wx:if="{{mode=='created'}}">
+        <view class="empty-text" wx:if="{{createdGames.length == 0}}">
+            不存在的
+        </view>
+        <scroll-view class="has-shadow-block" wx:if="{{createdGames.length > 0}}">
+            <template is="item" wx:for="{{createdGames}}" />
+        </scroll-view>
+    </view>
 </view>

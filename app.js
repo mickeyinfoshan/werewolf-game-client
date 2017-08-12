@@ -1,81 +1,104 @@
 //app.js
 App({
-  onLaunch: function() {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-    this.getUserInfo()
-  },
+    onLaunch: function () {
+        //调用API从本地缓存中获取数据
+        var logs = wx.getStorageSync('logs') || []
+        logs.unshift(Date.now())
+        wx.setStorageSync('logs', logs)
+        this.getUserInfo()
+    },
 
-  getUserInfo: function(cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        withCredentials: false,
-        success: function(res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
+    getUserInfo: function (cb) {
+        var that = this
+        if (this.globalData.userInfo) {
+            typeof cb == "function" && cb(this.globalData.userInfo)
+        } else {
+            //调用登录接口
+            wx.getUserInfo({
+                withCredentials: false,
+                success: function (res) {
+                    that.globalData.userInfo = res.userInfo
+                    typeof cb == "function" && cb(that.globalData.userInfo)
+                }
+            })
         }
-      })
-    }
-  },
+    },
 
-  requestFailed: function() {
-    console.log("网络请求失败")
-    wx.showToast({
-      title: '请求失败',
-      icon: 'loading',
-    })
-  },
+    requestFailed: function () {
+        console.log("网络请求失败")
+        wx.showToast({
+            title: '请求失败',
+            icon: 'loading',
+        })
+    },
 
-  globalData: {
-    userInfo: null,
-    apiHost: "https://202.91.248.189:8443/api-neuclub/api",
-    openID: "",
-  },
-  initGameItem: function(item) {
-    let startTime = new Date(item.start_time);
-    let createTime = new Date(item.create_time);
-    let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth() + 1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
-    let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
-    return Object.assign({}, item, { startTimeDisplay, createTimeDisplay })
-  },
-  toGameDetail: function (e) {
-    let {
+    globalData: {
+        userInfo: null,
+        apiHost: "https://202.91.248.189:8443/api-neuclub/api",
+        openID: "biubiubiu",
+    },
+    initGameItem: function (item) {
+        let startTime = new Date(item.start_time);
+        let createTime = new Date(item.create_time);
+        let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth() + 1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
+        let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
+        return Object.assign({}, item, { startTimeDisplay, createTimeDisplay })
+    },
+    toGameDetail: function (e) {
+        let {
           gameid
         } = e.currentTarget.dataset
-    console.log(e.currentTarget.dataset)
-    wx.navigateTo({
-      url: '../gamedetail/gamedetail?id=' + gameid,
-    })
-  },
-  request: function(options) {
-      wx.showLoading({
-        title: '加载中',
-      })
-      let that = this;
-      let success = res => {
-          let {
+        console.log(e.currentTarget.dataset)
+        wx.navigateTo({
+            url: '../gamedetail/gamedetail?id=' + gameid,
+        })
+    },
+    request: function (options) {
+        wx.showLoading({
+            title: '加载中',
+        })
+        let that = this;
+        let success = res => {
+            let {
             code,
-            data
+                data
           } = res.data
-          if(code != "0") {
+            if (code != "0") {
+                that.requestFailed()
+                return
+            }
+            wx.hideLoading()
+            return options.success && options.success(data)
+        }
+        let fail = e => {
             that.requestFailed()
-            return
-          }
-          wx.hideLoading()
-          return options.success && options.success(data)
-      }
-      let fail = e => {
-        that.requestFailed()
-        return options.fail && options.fail(e)
-      }
-      let url = this.globalData.apiHost + options.url
-      let reqOptions = Object.assign({}, options, {success, fail, url})
-      return wx.request(reqOptions)
-  },
+            return options.fail && options.fail(e)
+        }
+        let url = this.globalData.apiHost + options.url
+        let reqOptions = Object.assign({}, options, { success, fail, url })
+        return wx.request(reqOptions)
+    },
+    getOpenID: function (options) {
+        let {
+            openID
+        } = this.globalData
+        if (openID && openID !== "") {
+            return options.success && options.success(openID)
+        }
+        return options.fail && options.fail("no open id")
+    },
+    requestWithOpenID: function (options) {
+        let that = this
+        let fail = e => {
+            that.requestFailed()
+            return options.fail && options.fail(e)
+        }
+        this.getOpenID({
+            success: openID => {
+                options.data = Object.assign({}, options.data, { open_id: openID })
+                that.request(options)
+            },
+            fail: fail,
+        })
+    },
 })

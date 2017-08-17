@@ -85,8 +85,8 @@ Page({
         if(!selectedArea) {
             return
         }
-        app.request({
-            url: `/games?inRegister=1&area_id=${selectedArea.area_id}&open_id=123`,
+        app.requestWithOpenID({
+            url: `/games?inRegister=1&area_id=${selectedArea.area_id}`,
             success: data => {
                 that.setData({
                     games: data.map(app.initGameItem),

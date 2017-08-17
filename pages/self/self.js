@@ -78,13 +78,13 @@ Page({
     fetchEntranceGames: function () {
         app.requestWithOpenID({
             url: `/games`,
-            success: data => this.setData({ entranceGames: data })
+            success: data => this.setData({ entranceGames: data.map(app.initGameItem) })
         })
     },
     fetchCreatedGames: function () {
         app.requestWithOpenID({
             url: `/games/launch`,
-            success: data => this.setData({ createdGames: data })
+            success: data => this.setData({ createdGames: data.map(app.initGameItem) })
         })
     },
     setModeEntrance: function () {

@@ -34,7 +34,7 @@ Page({
         url: '../gamelist/gamelist',
       })
     }
-    this.gameID = id
+    this.gameID = parseInt(id)
     this.fetchGameDetail()
   },
 

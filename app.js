@@ -6,6 +6,7 @@ App({
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
         this.getUserInfo()
+        this.login()
     },
 
     getUserInfo: function (cb) {
@@ -99,6 +100,11 @@ App({
                 that.request(options)
             },
             fail: fail,
+        })
+    },
+    login: function() {
+        wx.login({
+            success: ({code}) => console.log(code)
         })
     },
 })

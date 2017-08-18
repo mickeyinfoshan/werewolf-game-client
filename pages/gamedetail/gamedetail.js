@@ -88,11 +88,8 @@ Page({
   },
   fetchGameDetail: function() {
     let that = this
-    app.request({
+    app.requestWithOpenID({
       url: `/games/${this.gameID}`,
-      data: {
-        open_id: "TODO:setopen_id",
-      },
       success: data => {
         that.fetchAreaInfo(data.area_id)
         that.setData({

@@ -36,7 +36,7 @@ App({
     globalData: {
         userInfo: null,
         apiHost: "https://202.91.248.189:8443/api-neuclub/api",
-        openID: "biubiubiu",
+        openID: "",
     },
     initGameItem: function (item) {
         let startTime = new Date(item.start_time);
@@ -62,7 +62,7 @@ App({
         let success = res => {
             let {
             code,
-                data
+                data,
           } = res.data
             if (code != "0") {
                 that.requestFailed()
@@ -76,7 +76,10 @@ App({
             return options.fail && options.fail(e)
         }
         let url = this.globalData.apiHost + options.url
-        let reqOptions = Object.assign({}, options, { success, fail, url })
+        let header = {
+            'content-type': 'application/x-www-form-urlencoded',
+        }
+        let reqOptions = Object.assign({}, options, { success, fail, url, header })
         return wx.request(reqOptions)
     },
     getOpenID: function (options) {
@@ -96,15 +99,41 @@ App({
         }
         this.getOpenID({
             success: openID => {
-                options.data = Object.assign({}, options.data, { open_id: openID })
+                options.data = Object.assign({}, options.data, { openid: openID })
                 that.request(options)
             },
             fail: fail,
         })
     },
-    login: function() {
-        wx.login({
-            success: ({code}) => console.log(code)
+    login: function (cb) {
+        let that = this
+        this.getUserInfo(({ nickName, avatarUrl, gender }) => {
+            wx.login({
+                success: ({ code }) => {
+                    let dataToPost = {
+                        nickName,
+                        avatarUrl,
+                        gender,
+                        code,
+                    }
+                    that.request({
+                        url: "/users",
+                        method: "post",
+                        data: dataToPost,
+                        success: data => {
+                            let {
+                                openid,
+                                nickName,
+                            } = data
+                            that.globalData.openID = openid
+                            cb && cb(data)
+                        } 
+                    })
+                },
+                fail: wx.showToast({
+                    title: '登录失败',
+                })
+            })
         })
     },
 })

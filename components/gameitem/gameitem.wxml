@@ -11,7 +11,7 @@
         <view class="game-players">
           <text class="game-players-label">活动人数: </text>
           <view class="game-playlers-number">
-            <text class="game-players-in-green">{{entrances.length}}</text>
+            <text class="game-players-in-green">{{entrances.length || 0}}</text>
             <text>/{{member_count}}</text>
           </view>
         </view>

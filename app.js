@@ -5,7 +5,7 @@ App({
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
-        this.getUserInfo()
+        // this.getUserInfo()
         this.login()
     },
 
@@ -126,6 +126,7 @@ App({
                                 nickName,
                             } = data
                             that.globalData.openID = openid
+                            that.globalData.userInfo = data
                             cb && cb(data)
                         } 
                     })

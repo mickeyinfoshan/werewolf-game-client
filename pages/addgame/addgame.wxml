@@ -1,2 +1,94 @@
 <!--addgame.wxml-->
-<text>addgame.wxml</text>
+<view class="container">
+  <view class="row">
+    <label>活动标题</label>
+    <view class="text-input-wrapper">
+      <input class="text-input" type="text" value="{{game.game_title}}" bindinput="onTitleInput" />
+    </view>
+  </view>
+  <view class="row">
+    <label>场地选择</label>
+    <picker 
+      mode="selector" 
+      range="{{areas}}" 
+      range-key="area_name"
+      class="text-input-wrapper"
+      bindchange="selectArea"
+      value="{{game.area_index}}"
+    >
+      <view class="picker-text">
+        {{
+            areas[game.area_index] &&
+            areas[game.area_index].area_name ||
+            "暂无选择"
+        }}
+      </view>
+    </picker>
+  </view>
+  <view class="row">
+    <label>法官选择</label>
+    <picker 
+      mode="selector" 
+      range="{{judges}}" 
+      range-key="judge_name"
+      class="text-input-wrapper"
+      bindchange="selectJudge"
+      value="{{game.judge_index}}"
+    >
+      <view class="picker-text">
+        {{
+            judges[game.judge_index] &&
+            judges[game.judge_index].judge_name ||
+            "暂无选择"
+        }}
+      </view>
+    </picker>
+  </view>
+  <view class="row">
+    <label>活动人数</label>
+    <view class="text-input-wrapper">
+      <input class="text-input" type="number" value="{{game.member_count}}" />
+    </view>
+  </view>
+  <view class="row">
+    <label>活动费用</label>
+    <view class="text-input-wrapper">
+      <input class="text-input" type="digit" value="{{game.game_cost}}" />
+    </view>
+  </view>
+  <view class="row">
+    <label>开始日期</label>
+    <picker 
+      mode="date" 
+      value="{{game.date_value}}"
+      class="text-input-wrapper"
+      bindchange="onDatePickerChange"
+    >
+      <view class="picker-text">
+        {{game.date_value}}
+      </view>
+    </picker>
+  </view>
+  <view class="row">
+    <label>开始时间</label>
+    <picker 
+      mode="time" 
+      value="{{game.time_value}}"
+      class="text-input-wrapper"
+      bindchange="onTimePickerChange"
+    >
+      <view class="picker-text">
+        {{game.time_value}}
+      </view>
+    </picker>
+  </view>
+  <view class="row textarea-row">
+    <label>活动公告</label>
+    <view class="textarea-wrapper">
+      <textarea/>
+    </view>
+  </view>
+  <view class="save-btn-wrapper">
+    <button class="save-btn" bindtap="save">创建</button>
+  </view>
+</view>

@@ -28,7 +28,7 @@
       <text class="bottom-tip">—— 已经到底啦 ——</text>
     </view>
   </view>
-  <view class="add-button" bindtap="toAddGamePage">
+  <view class="add-button" bindtap="toAddGamePage" wx:if="{{userInfo.permission >= 3}}">
       <text class="add-button-text">+</text>
   </view>
 </view>

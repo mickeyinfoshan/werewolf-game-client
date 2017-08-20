@@ -77,7 +77,7 @@ Page({
     app.requestWithOpenID({
       url: "/entrances/submit",
       data: dataToPost,
-      method: "post",
+      method: "POST",
       success: prepay_id => {
         wx.showModal({
           title: '报名成功',

@@ -11,7 +11,7 @@
         <text class="game-name">{{game_title}}</text>
         <text class="game-time">{{startTimeDisplay}}</text>
         <text class="game-address">
-          {{area.area_address}}
+          {{area_address}}
         </text>
         
       </view>

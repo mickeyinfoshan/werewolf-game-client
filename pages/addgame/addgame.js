@@ -141,7 +141,7 @@ Page({
     app.request({
       url: "/games",
       data: dataToPost,
-      method: "post",
+      method: "POST",
       success: () => {
         wx.showToast({
           title: "创建成功",

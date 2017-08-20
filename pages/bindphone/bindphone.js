@@ -92,7 +92,7 @@ Page({
     app.request({
       url: "/users/sendSms",
       data: {phone},
-      method: "post",
+      method: "POST",
       success: () => {
         this.setData({
           countDown: 60
@@ -109,7 +109,7 @@ Page({
     app.requestWithOpenID({
       url: "/users/bind",
       data,
-      method: "post",
+      method: "POST",
       success: ()=>wx.navigateBack({
         
       })

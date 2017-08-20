@@ -72,6 +72,7 @@ App({
             return options.success && options.success(data)
         }
         let fail = e => {
+            console.error(e)
             that.requestFailed()
             return options.fail && options.fail(e)
         }
@@ -118,7 +119,7 @@ App({
                     }
                     that.request({
                         url: "/users",
-                        method: "post",
+                        method: "POST",
                         data: dataToPost,
                         success: data => {
                             let {
@@ -140,7 +141,7 @@ App({
     pay: function({prepay_id, success, fail, complete}) {
       this.request({
         url: "/pay",
-        method: "post",
+        method: "POST",
         data: {prepay_id},
         success: data => {
           let paymentRequest = Object.assign({}, data, {

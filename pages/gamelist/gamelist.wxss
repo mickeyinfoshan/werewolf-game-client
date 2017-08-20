@@ -1,7 +1,7 @@
 /* gamelist.wxss */
 
 .header, .bottom-tip-wrapper {
-  height: 1.8em;
+  height: 3rem;
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -15,12 +15,12 @@
 }
 
 .header-text {
-  font-size: 0.75em;
+  font-size: 1rem;
   display: inline;
 }
 
 .bottom-tip {
-  font-size: 0.7em;
+  font-size: 1rem;
   color: #aaa;
 }
 

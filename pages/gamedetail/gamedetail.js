@@ -117,7 +117,7 @@ Page({
   cancelEntrance: function() {
     app.requestWithOpenID({
       url: "/entrances/cancel",
-      method:"post",
+      method:"POST",
       data: {
         game_id: this.gameID,
       },

@@ -1,6 +1,6 @@
 /**app.wxss**/
 .container {
-    /* min-height: 100%; */
+     min-height: 100%; 
     background-color: #eee;
     position: absolute;
     width: 100%;
@@ -60,15 +60,15 @@
 }
 
 .game-name {
-    font-size: 15px;
+    font-size: 1rem;
 }
 
-.game-time {
-    font-size: 0.7em;
+.game-time, .game-address {
+    font-size: 0.7rem;
 }
 
 .game-players {
-    font-size: 0.7em;
+    font-size: 0.9rem;
     flex-direction: row;
     display: flex;
     align-items: center;
@@ -93,8 +93,8 @@
 }
 
 .game-price {
-    font-size: 14px;
-    color: #666;
+    font-size: 1rem;
+    color: #f00;
 }
 
 .game-place {
@@ -114,7 +114,7 @@
 }
 
 .place-intro {
-    font-size: 13px;
+    font-size: 0.7rem;
     color: #888;
     font-weight: lighter;
     line-height: 150%;
@@ -134,7 +134,7 @@
 }
 
 .place-address {
-    font-size: 14px;
+    font-size: 0.7rem;
     margin-bottom: 0.8em;
     margin-top: 0.5em;
 }
@@ -146,7 +146,7 @@
 .place-intro-truncate-toggle-btn {
     /* font-size: 0.7em; */
     display: inline-block;
-    font-size: 13px;
+    font-size: 0.7rem;
     color: #888;
     vertical-align: middle;
 }

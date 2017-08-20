@@ -57,7 +57,7 @@
         我要报名
       </button>
     </view>
-    <view class="action-button-wrapper" bindtap="cancelEntrance" wx:if="{{gameDetail.user_status == 0}}">
+    <view class="action-button-wrapper" bindtap="pay" wx:if="{{gameDetail.user_status == 0}}">
       <button class="action-button">
         支付
       </button>

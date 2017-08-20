@@ -2,23 +2,28 @@
   <!--样式在app.wxss-->
   <view class="game-item" bindtap="toGameDetail" data-gameid="{{game_id}}">
     <view class="game-img-wrapper">
-      <image src="../assets/images/default.png" class="game-img default-img"></image>
+      <image src="{{avatarUrl}}" class="game-avatar" wx:if="{{avatarUrl}}"></image>
+      <image src="../assets/images/default.png" class="game-img default-img" wx:if="{{!avatarUrl}}"></image>
+      <text class="game-nickname">{{nickName}}</text>
     </view>
     <view class="game-text-wrapper">
       <view class="game-text-left">
         <text class="game-name">{{game_title}}</text>
         <text class="game-time">{{startTimeDisplay}}</text>
+        <text class="game-address">
+          {{area.area_address}}
+        </text>
+        
+      </view>
+      <view class="game-text-right">
+        <text class="game-price">￥{{game_cost}}</text>
         <view class="game-players">
-          <text class="game-players-label">活动人数: </text>
+          <text class="game-p layers-label">车队: </text>
           <view class="game-playlers-number">
             <text class="game-players-in-green">{{entranced_count || 0}}</text>
             <text>/{{member_count}}</text>
           </view>
-        </view>
-      </view>
-      <view class="game-text-right">
-        <text class="game-price">￥{{game_cost}}</text>
-        <text class="game-publish-time">{{createTimeDisplay}}</text>
+        </view>  
       </view>
     </view>
   </view>

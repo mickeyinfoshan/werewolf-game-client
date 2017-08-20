@@ -137,4 +137,19 @@ App({
             })
         })
     },
+    pay: function({prepay_id, success, fail, complete}) {
+      this.request({
+        url: "/pay",
+        method: "post",
+        data: {prepay_id},
+        success: data => {
+          let paymentRequest = Object.assign({}, data, {
+            success,
+            fail,
+            complete,
+          })
+          wx.requestPayment(paymentRequest);
+        }
+      })
+    },
 })

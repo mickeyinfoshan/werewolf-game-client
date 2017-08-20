@@ -1,16 +1,12 @@
+// mygames.js
 var app = getApp()
-// userinfo.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    nickName: "",
-    phone: "",
-    avatarUrl: "",
-    gender: 1,
-    genders:[{
-      value: "女 ♀"
-    }, {
-      value: "男 ♂",
-    }],
+    games: [],
   },
 
   /**
@@ -31,7 +27,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.getUserInfo(data => this.setData(data))
+    this.fetchMyGames()
   },
 
   /**
@@ -62,31 +58,12 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  selectGender: function(e) {
-    let gender = e.detail.value
-    this.setData({gender})
-  },
-  save: function() {
-
-  },
-  toBindPhone: function() {
-    wx.navigateTo({
-      url: '../bindphone/bindphone',
+  fetchMyGames: function() {
+    app.requestWithOpenID({
+      url: "",
+      success: games => {
+        this.setData({games})
+      }
     })
-  },
-  chooseImage: function() {
-      wx.chooseImage({
-        success: function(res) {
-          this.setData({
-            avatarUrl: res,
-          })
-        },
-      })
   },
 })

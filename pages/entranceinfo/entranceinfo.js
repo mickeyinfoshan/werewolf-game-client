@@ -78,7 +78,7 @@ Page({
       url: "/entrances/submit",
       data: dataToPost,
       method: "post",
-      success: () => {
+      success: prepay_id => {
         wx.showModal({
           title: '报名成功',
           content: '前往支付',
@@ -89,6 +89,14 @@ Page({
             if(cancel) {
               wx.navigateBack({
                 
+              })
+            }
+            if(confirm) {
+              app.pay({
+                complete: ()=> wx.navigateBack({
+                  
+                }),
+                prepay_id,
               })
             }
           }

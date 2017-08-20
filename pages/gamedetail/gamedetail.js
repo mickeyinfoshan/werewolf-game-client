@@ -123,5 +123,14 @@ Page({
       },
       success: ()=> this.fetchGameDetail()
     })
+  },
+  pay: function() {
+    let {
+      prepay_id
+    } = this.data.gameDetail
+    app.pay({
+      prepay_id,
+      complete: () => this.fetchGameDetail()
+    })
   }
 })

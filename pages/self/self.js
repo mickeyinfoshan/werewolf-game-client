@@ -11,19 +11,13 @@ Page({
      */
     data: {
         userInfo: {},
-        mode: MODE_ENTRANCE,
-        entranceGames: [],
-        createdGames: [],
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.getUserInfo(userInfo => {
-            this.setData({ userInfo })
-        })
-        this.fetchEntranceGames()
+        
     },
 
     /**
@@ -37,7 +31,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      app.getUserInfo(userInfo => {
+        this.setData({ userInfo })
+      })
     },
 
     /**
@@ -67,42 +63,21 @@ Page({
     onReachBottom: function () {
 
     },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    toEdit: function() {
+      wx.navigateTo({
+        url: '../userinfo/userinfo',
+      })
     },
 
-    fetchEntranceGames: function () {
-        app.requestWithOpenID({
-            url: `/games`,
-            success: data => this.setData({ entranceGames: data.map(app.initGameItem) })
-        })
+    toAddGame: function() {
+      wx.navigateTo({
+        url: '../addgame/addgame',
+      })
     },
-    fetchCreatedGames: function () {
-        app.requestWithOpenID({
-            url: `/games/launch`,
-            success: data => this.setData({ createdGames: data.map(app.initGameItem) })
-        })
-    },
-    setModeEntrance: function () {
-        if (this.data.mode === MODE_ENTRANCE) {
-            return
-        }
-        this.setData({
-            mode: MODE_ENTRANCE,
-        })
-        this.fetchEntranceGames()
-    },
-    setModeCreated: function () {
-        if (this.data.mode === MODE_CREATED) {
-            return
-        }
-        this.setData({
-            mode: MODE_CREATED
-        })
-        this.fetchCreatedGames()
+
+    toMyGames: function() {
+      wx.navigateTo({
+        url: '../mygames/mygames',
+      })
     },
 })

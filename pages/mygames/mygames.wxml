@@ -1,0 +1,7 @@
+<!--mygames.wxml-->
+<import src="../../components/gameitem/gameitem.wxml" />
+<view class="container">
+  <scroll-view class="game-list has-shadow-block">
+      <template is="item" wx:for="{{games}}" wx:key="{{item.game_id}}" data="{{...item}}"/>
+    </scroll-view>
+</view>

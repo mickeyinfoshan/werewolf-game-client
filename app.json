@@ -9,11 +9,21 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/bindphone/bindphone",
-    "pages/entranceinfo/entranceinfo"
+    "pages/entranceinfo/entranceinfo",
+    "pages/mygames/mygames"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "狼人杀组局小程序",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/gamelist/gamelist",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/self/self",
+      "text": "我的"
+    }]
   }
 }

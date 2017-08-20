@@ -1,6 +1,6 @@
 /**app.wxss**/
 .container {
-    min-height: 100%;
+    /* min-height: 100%; */
     background-color: #eee;
     position: absolute;
     width: 100%;
@@ -23,10 +23,17 @@
 .game-img-wrapper, .place-img-wrapper {
     display: flex;
     flex: 1;
-    align-content: flex-start;
+    align-content: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0.2em;
+    padding: 0.2rem;
+}
+
+.game-img-wrapper {
+  background-color: #1296DB;
+  align-items: center;
+  width: 20%;
+  padding: 18px 0;
 }
 
 .game-img, .place-img {
@@ -64,6 +71,8 @@
     font-size: 0.7em;
     flex-direction: row;
     display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .game-players-in-green {
@@ -144,4 +153,24 @@
 
 .default-img {
   opacity: 0.1;
+}
+
+.game-nickname {
+  font-size: 0.7rem;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 80%;
+  text-overflow: ellipsis;
+  color: #fff;
+  margin-top: 16px;
+}
+
+.game-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+
+.game-img, .game-nickname {
+  display: inline-block;
 }

@@ -1,3 +1,4 @@
+/* userinfo.wxss */
 /* addgame.wxss */
 .row {
   background-color: #fff;
@@ -59,4 +60,21 @@ textarea {
 
 .save-btn {
   width: 90%;
+}
+
+.gender-male {
+  color: blue;
+}
+
+.gender-female {
+  color: pink;
+}
+
+.gender-text {
+  font-weight: bolder;
+}
+
+.avatar-image {
+  width: 40px;
+  height: 40px;
 }

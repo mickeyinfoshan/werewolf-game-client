@@ -9,7 +9,7 @@ Page({
   data: {
     userInfo: null,
     gameDetail: null,
-    area: null,
+    // area: null,
     introTruncate: true,
     hasEntrance: false,
     nickName: "",
@@ -70,7 +70,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+      this.fetchGameDetail()
   },
 
   /**
@@ -91,22 +91,10 @@ Page({
     app.requestWithOpenID({
       url: `/games/${this.gameID}`,
       success: data => {
-        that.fetchAreaInfo(data.area_id)
         that.setData({
           gameDetail: data,
         })
       },
-    })
-  },
-  fetchAreaInfo: function(areaID) {
-    let that = this;
-    app.request({
-      url: `/areas/${areaID}`,
-      success: data => {
-        that.setData({
-          area: data
-        })
-      }
     })
   },
   togglePlaceIntroTruncate: function () {

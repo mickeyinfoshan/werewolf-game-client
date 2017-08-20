@@ -1,0 +1,47 @@
+<!--addgame.wxml-->
+<view class="container">
+  <view class="row">
+    <label>昵称</label>
+    <view class="text-input-wrapper">
+      <input 
+        class="text-input" 
+        type="text" 
+        value="{{nickName}}" 
+        bindinput="onNickNameInput" 
+      />
+    </view>
+  </view>
+  
+  <view class="row" bindtap="chooseImage">
+    <label>头像</label>
+    <view class="text-input-wrapper">
+      <image src="{{avatarUrl}}" class="avatar-image"></image>
+    </view>
+  </view>
+  <view class="row">
+    <label>性别</label>
+    <picker 
+      mode="selector" 
+      range="{{genders}}" 
+      range-key="value"
+      class="text-input-wrapper"
+      bindchange="selectGender"
+      value="{{gender}}"
+    >
+      <view class="picker-text gender-text">
+        <text wx:if="{{gender==1}}" class="gender-male" >♂</text>
+        <text wx:if="{{gender==0}}" class="gender-female">♀</text>
+      </view>
+    </picker>
+  </view>
+  <view class="row" bindtap="toBindPhone">
+    <label>手机号码</label>
+    <view class="text-input-wrapper">
+      {{phone || "去绑定手机"}}
+    </view>
+  </view>
+  
+  <view class="save-btn-wrapper">
+    <button class="save-btn" bindtap="save">创建</button>
+  </view>
+</view>

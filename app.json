@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/gamelist/gamelist",
+    "pages/userinfo/userinfo",
     "pages/bindphone/bindphone",
     "pages/addgame/addgame",
     "pages/self/self",

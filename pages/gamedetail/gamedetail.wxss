@@ -1,13 +1,5 @@
 /* gamedetail.wxss */
 
-.action-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(44, 152, 240);
-    padding: 0 20px;
-}
-
 .action-button-text {
     color: #fff;
     font-size: 18px;
@@ -117,7 +109,7 @@
 
 .bottom {
     position: fixed;
-    bottom: 0;
+    bottom: 10px;
     left: 0;
     height: 2.2em;
     width: 100%;
@@ -125,7 +117,7 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: space-between;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .user-info-wrapper {
@@ -162,4 +154,42 @@
     font-size: 14px;
     color: #333;
     flex: 1;
+}
+
+.judge-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.judge-row {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 10px;
+}
+
+.judge-row > label {
+  font-size: 14px;
+  color: #999;
+  margin-left: 10px;
+}
+
+.judge-nickname {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.action-button-wrapper {
+  flex: 1;
+  /* padding: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button {
+  width: 90%;
 }

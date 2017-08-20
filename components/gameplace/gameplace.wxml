@@ -2,7 +2,8 @@
   <!--样式在app.wxss-->
   <view class="game-place has-shadow-block">
     <view class="place-img-wrapper">
-      <image src="{{area_image}}" class="place-img"></image>
+      <image src="{{area_image}}" class="place-img" wx:if="{{area_image}}"></image>
+      <image src="../assets/images/default.png" wx:if="{{!area_image}}" class="place-img default-img"></image>
     </view>
     <view class="place-text-wrapper">
         <text class="place-address">{{area_address}}</text>

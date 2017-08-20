@@ -1,0 +1,15 @@
+<!--entranceinfo.wxml-->
+<view class="container">
+ <view class="row">
+    <label>昵称</label>
+    <input type="string" placeholder="输入昵称" bindinput="onNickNameInput" value="{{nickName}}" />
+  </view>
+  <view class="row">
+    <label>手机号</label>
+    <input type="number" placeholder="输入手机号" bindinput="onPhoneInput" value="{{phone}}" />
+  </view>
+  
+  <view class="save-btn-wrapper">
+    <button class="save-btn" bindtap="save">确认</button>
+  </view>
+</view>

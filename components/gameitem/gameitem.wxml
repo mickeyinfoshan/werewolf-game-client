@@ -2,7 +2,7 @@
   <!--样式在app.wxss-->
   <view class="game-item" bindtap="toGameDetail" data-gameid="{{game_id}}">
     <view class="game-img-wrapper">
-      <image src="https://images-fe.ssl-images-amazon.com/images/I/51OWg-zsNHL._AC_US160_.jpg" class="game-img"></image>
+      <image src="../assets/images/default.png" class="game-img default-img"></image>
     </view>
     <view class="game-text-wrapper">
       <view class="game-text-left">
@@ -11,7 +11,7 @@
         <view class="game-players">
           <text class="game-players-label">活动人数: </text>
           <view class="game-playlers-number">
-            <text class="game-players-in-green">{{entrances.length || 0}}</text>
+            <text class="game-players-in-green">{{entranced_count || 0}}</text>
             <text>/{{member_count}}</text>
           </view>
         </view>

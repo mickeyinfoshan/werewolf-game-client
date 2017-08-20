@@ -141,3 +141,7 @@
     color: #888;
     vertical-align: middle;
 }
+
+.default-img {
+  opacity: 0.1;
+}

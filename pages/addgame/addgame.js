@@ -157,5 +157,20 @@ Page({
     let game_title = e.detail.value
     let game = Object.assign({}, this.data.game, {game_title})
     this.setData({game})
-  }
+  },
+  onMemberCountInput: function(e) {
+    let member_count = e.detail.value
+    let game = Object.assign({} ,this.data.game, {member_count})
+    this.setData({game})
+  },
+  onCostInput: function(e) {
+    let game_cost = e.detail.value
+    let game = Object.assign({}, this.data.game, {game_cost})
+    this.setData({game})
+  },
+  onDescriptionInput: function(e) {
+    let game_descrption = e.detail.value
+    let game = Object.assign({}, this.data.game, {game_description})
+    this.setData({game})
+  },
 })

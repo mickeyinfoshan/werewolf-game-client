@@ -35,7 +35,7 @@ Page({
       })
     }
     this.gameID = parseInt(id)
-    this.fetchGameDetail()
+    
   },
 
   /**
@@ -49,7 +49,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.fetchGameDetail()
   },
 
   /**
@@ -115,23 +115,9 @@ Page({
     })
   },
   entranceAction: function() {
-      let data = {
-          game_id: this.gameID,
-          status: 1,
-          nick_name: this.data.nickName.length > 0 ? this.data.nickName : this.data.userInfo.nickName,
-      }
-      console.log(data)
-        app.requestWithOpenID({
-            url: "/entrances",
-            method: "post",
-            data,
-            success: () => {
-                wx.showToast({
-                    title: '报名成功',
-                })
-                this.fetchGameDetail()
-            }
-        })
+    wx.navigateTo({
+      url: `../entranceinfo/entranceinfo?id=${this.gameID}`,
+    })
   },
 
   onNickNameChanged: function(e) {
@@ -139,5 +125,15 @@ Page({
           nickName: e.detail.value,
       })
       return e.detail.value
+  },
+  cancelEntrance: function() {
+    app.requestWithOpenID({
+      url: "/entrances/cancel",
+      method:"post",
+      data: {
+        game_id: this.gameID,
+      },
+      success: ()=> this.fetchGameDetail()
+    })
   }
 })

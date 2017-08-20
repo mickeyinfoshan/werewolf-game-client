@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/addgame/addgame",
     "pages/gamelist/gamelist",
+    "pages/bindphone/bindphone",
+    "pages/addgame/addgame",
     "pages/self/self",
     "pages/gamedetail/gamedetail",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/bindphone/bindphone",
+    "pages/entranceinfo/entranceinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

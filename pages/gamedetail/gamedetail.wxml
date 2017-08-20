@@ -52,16 +52,11 @@
         <text class="announcement-text">{{gameDetail.game_notification}}</text>
     </view>
     <view class="bottom">
-        <view class="user-info-wrapper">
-            <view class="bottom-avatar-wrapper">
-                <image src="{{userInfo.avatarUrl}}" class="bottom-avatar"></image>
-            </view>
-            <view class="nickname-input-wrapper">
-                <input type="text" value="{{nickName}}" bindinput="onNickNameChanged" placeholder="输入昵称，不填默认使用微信昵称" class="nickname-input" />
-            </view>
-        </view>
         <view class="action-button" bindtap="entranceAction">
             <text class="action-button-text">我要参加</text>
+        </view>
+        <view class="action-button" bindtap="cancelEntrance">
+            <text class="action-button-text">取消报名</text>
         </view>
     </view>
 

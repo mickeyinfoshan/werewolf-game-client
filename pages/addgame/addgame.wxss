@@ -58,5 +58,5 @@ textarea {
 }
 
 .save-btn {
-  width: 80%;
+  width: 90%;
 }

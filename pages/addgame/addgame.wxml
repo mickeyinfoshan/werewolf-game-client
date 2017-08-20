@@ -3,7 +3,12 @@
   <view class="row">
     <label>活动标题</label>
     <view class="text-input-wrapper">
-      <input class="text-input" type="text" value="{{game.game_title}}" bindinput="onTitleInput" />
+      <input 
+        class="text-input" 
+        type="text" 
+        value="{{game.game_title}}" 
+        bindinput="onTitleInput" 
+      />
     </view>
   </view>
   <view class="row">
@@ -47,13 +52,23 @@
   <view class="row">
     <label>活动人数</label>
     <view class="text-input-wrapper">
-      <input class="text-input" type="number" value="{{game.member_count}}" />
+      <input 
+      class="text-input" 
+      type="number" 
+      value="{{game.member_count}}" 
+      bindinput="onMemberCountInput"
+      />
     </view>
   </view>
   <view class="row">
     <label>活动费用</label>
     <view class="text-input-wrapper">
-      <input class="text-input" type="digit" value="{{game.game_cost}}" />
+      <input 
+        class="text-input" 
+        type="digit" 
+        value="{{game.game_cost}}" 
+        bindinput="onCostInput"
+      />
     </view>
   </view>
   <view class="row">
@@ -85,7 +100,10 @@
   <view class="row textarea-row">
     <label>活动公告</label>
     <view class="textarea-wrapper">
-      <textarea/>
+      <textarea 
+        value="{{game.game_description}}"
+        bindinput="onDescriptionInput" 
+      />
     </view>
   </view>
   <view class="save-btn-wrapper">

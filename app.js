@@ -35,7 +35,7 @@ App({
 
     globalData: {
         userInfo: null,
-        apiHost: "https://202.91.248.189:8443/api-neuclub/api",
+        apiHost: "https://mickey.yeeuu.com/api-neuclub/api",
         openID: "",
     },
     initGameItem: function (item) {
@@ -144,8 +144,18 @@ App({
         method: "POST",
         data: {prepay_id},
         success: data => {
+          data.timeStamp = data.timeStamp + ""
+          data.paySign = data.sign
+          console.log(data)
           let paymentRequest = Object.assign({}, data, {
-            success,
+            success: res => {
+              // this.request({
+              //   url: "/pay/success",
+              //   data: {prepay_id},
+              //   method: "POST",
+              // }),
+              success()
+            },
             fail,
             complete,
           })

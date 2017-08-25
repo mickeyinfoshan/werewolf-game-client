@@ -35,7 +35,7 @@
     <picker 
       mode="selector" 
       range="{{judges}}" 
-      range-key="judge_name"
+      range-key="nickName"
       class="text-input-wrapper"
       bindchange="selectJudge"
       value="{{game.judge_index}}"
@@ -43,7 +43,7 @@
       <view class="picker-text">
         {{
             judges[game.judge_index] &&
-            judges[game.judge_index].judge_name ||
+            judges[game.judge_index].nickName ||
             "暂无选择"
         }}
       </view>

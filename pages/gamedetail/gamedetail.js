@@ -84,7 +84,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+        title: this.data.gameDetail.game_title,
+    }
   },
   fetchGameDetail: function() {
     let that = this
@@ -93,6 +95,9 @@ Page({
       success: data => {
         that.setData({
           gameDetail: data,
+        })
+        wx.setNavigationBarTitle({
+            title: data.game_title,
         })
       },
     })

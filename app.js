@@ -5,8 +5,8 @@ App({
         var logs = wx.getStorageSync('logs') || []
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
-        // this.getUserInfo()
-        this.login()
+        this.getUserInfo()
+        // this.login()
     },
 
     getUserInfo: function (cb) {
@@ -25,10 +25,10 @@ App({
         }
     },
 
-    requestFailed: function () {
+    requestFailed: function (msg) {
         console.log("网络请求失败")
         wx.showToast({
-            title: '请求失败',
+            title: msg || '请求失败',
             icon: 'loading',
         })
     },
@@ -60,12 +60,14 @@ App({
         })
         let that = this;
         let success = res => {
+            console.log(res.data)
             let {
             code,
                 data,
+                msg,
           } = res.data
             if (code != "0") {
-                that.requestFailed()
+                that.requestFailed(msg)
                 return
             }
             wx.hideLoading()
@@ -73,10 +75,12 @@ App({
         }
         let fail = e => {
             console.error(e)
-            that.requestFailed()
+            that.requestFailed(e)
             return options.fail && options.fail(e)
         }
         let url = this.globalData.apiHost + options.url
+        console.log(url)
+        console.log(options.data)
         let header = {
             'content-type': 'application/x-www-form-urlencoded',
         }
@@ -90,7 +94,8 @@ App({
         if (openID && openID !== "") {
             return options.success && options.success(openID)
         }
-        return options.fail && options.fail("no open id")
+        return this.login(({openid})=>options.success(openid))
+        // return options.fail && options.fail("no open id")
     },
     requestWithOpenID: function (options) {
         let that = this

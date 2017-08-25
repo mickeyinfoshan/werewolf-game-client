@@ -34,6 +34,9 @@ Page({
       app.getUserInfo(userInfo => {
         this.setData({ userInfo })
       })
+      wx.setNavigationBarTitle({
+          title: '我的',
+      })
     },
 
     /**

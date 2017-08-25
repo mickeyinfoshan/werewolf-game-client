@@ -37,7 +37,7 @@
 }
 
 .place-list-item {
-  height: 2rem;
+  height: 2.4rem;
   border-bottom: solid 0.1em #000;
   justify-content: center;
   align-items: center;

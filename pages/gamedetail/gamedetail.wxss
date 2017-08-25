@@ -2,7 +2,6 @@
 
 .action-button-text {
     color: #fff;
-    font-size: 18px;
 }
 
 .game-detail-container {
@@ -29,13 +28,13 @@
 }
 
 .detail-info-label {
-    font-size: 0.7em;
+    font-size: 0.8rem;
     color: #999;
     margin-right: 0.3em;
 }
 
 .detail-info-value {
-    font-size: 0.8em;
+    font-size: 0.9rem;
     display: inline-block;
 }
 
@@ -48,7 +47,7 @@
 }
 
 .block-label {
-    font-size: 0.75em;
+    font-size: 0.75rem;
     color: #aaa;
 }
 
@@ -68,15 +67,15 @@
 }
 
 .player-avatar {
-    width: 2.5em;
-    height: 2.5em;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
 }
 
 .player-name {
-    font-size: 13px;
+    font-size: 0.7rem;
     color: #999;
-    max-width: 4.5em;
+    max-width: 4.5rem;
     word-break: keep-all;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -84,7 +83,7 @@
 }
 
 .player-gender {
-    font-size: 12px;
+    font-size: 0.5rem;
     margin-left: 5px;
 }
 
@@ -97,7 +96,7 @@
 }
 
 .announcement-text {
-    font-size: 14px;
+    font-size: 0.7rem;
     color: #999;
 }
 
@@ -128,7 +127,7 @@
 }
 
 .bottom-avatar-wrapper {
-    width: 2em;
+    width: 2rem;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -150,15 +149,9 @@
     flex-direction: row;
 }
 
-.nickname-input {
-    font-size: 14px;
-    color: #333;
-    flex: 1;
-}
-
 .judge-avatar {
-  width: 60px;
-  height: 60px;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   display: inline-block;
 }
@@ -172,14 +165,14 @@
 }
 
 .judge-row > label {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #999;
   margin-left: 10px;
 }
 
 .judge-nickname {
   display: inline-block;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .action-button-wrapper {

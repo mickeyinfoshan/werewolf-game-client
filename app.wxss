@@ -7,6 +7,8 @@
     left: 0;
     top: 0;
     font-family: 微软雅黑;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 /**gameitem, gameplace component style**/
@@ -20,6 +22,15 @@
     background-color: #fff;
 }
 
+.game-place {
+    align-items: flex-start;
+}
+
+.game-item {
+    margin-bottom: 0.5rem;
+}
+
+
 .game-img-wrapper, .place-img-wrapper {
     display: flex;
     flex: 1;
@@ -27,6 +38,10 @@
     justify-content: center;
     flex-direction: column;
     padding: 0.2rem;
+}
+
+.place-img-wrapper {
+    width: 25%;
 }
 
 .game-img-wrapper {
@@ -54,9 +69,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex: 3;
     line-height: 1;
+}
+
+.game-text-left>text {
+    margin-bottom: 10px;
 }
 
 .game-name {
@@ -64,7 +83,8 @@
 }
 
 .game-time, .game-address {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
 }
 
 .game-players {
@@ -103,14 +123,12 @@
 
 .place-text-wrapper {
     display: flex;
-    flex: 3;
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
     padding: 0.5em;
     color: #666;
-    width: 100%;
-    /* position: relative; */
+     width: 100%; 
 }
 
 .place-intro {

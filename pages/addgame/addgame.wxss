@@ -21,8 +21,11 @@
 .text-input, textarea {
   /* border: solid 1px #ddd; */
   flex: 1;
-  text-align: right;
   padding: 0 10px;
+}
+
+.text-input {
+    text-align: right;
 }
 
 .picker-text {

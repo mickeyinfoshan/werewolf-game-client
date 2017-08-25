@@ -28,6 +28,9 @@ Page({
    */
   onShow: function () {
     this.fetchMyGames()
+    wx.setNavigationBarTitle({
+        title: '我报名的',
+    })
   },
 
   /**
@@ -60,7 +63,7 @@ Page({
 
   fetchMyGames: function() {
     app.requestWithOpenID({
-      url: "",
+      url: "/games/entrance",
       success: games => {
         this.setData({games})
       }

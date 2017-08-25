@@ -45,7 +45,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+        wx.setNavigationBarTitle({
+            title: '组局',
+        })
   },
 
   /**
@@ -80,7 +82,6 @@ Page({
     app.request({
       url: `/areas`,
       success: areas => {
-        let area_id = areas[0].area_id || null
         this.setData({
           areas,
         })
@@ -88,7 +89,12 @@ Page({
     })
   },
   fetchJudges: function () {
-
+    app.request({
+        url: `/users/judges`,
+        success: judges => {
+            this.setData({judges})
+        },
+    })
   },
   selectArea: function (e) {
     let {
@@ -127,7 +133,7 @@ Page({
     } = this.data
     let dataToPost = Object.assign({}, game)
     dataToPost.area_id = areas[game.area_index] && areas[game.area_index].area_id || null
-    dataToPost.judge_id = judges[game.judge_index] && judges[game.judge_index].judge_id || null
+    dataToPost.judge_id = judges[game.judge_index] && judges[game.judge_index].openid || null
     let splited_date_value = game.date_value.split("-")
     let splited_time_value = game.time_value.split(":")
     let start_time = new Date()
@@ -169,7 +175,7 @@ Page({
     this.setData({game})
   },
   onDescriptionInput: function(e) {
-    let game_descrption = e.detail.value
+    let game_description = e.detail.value
     let game = Object.assign({}, this.data.game, {game_description})
     this.setData({game})
   },

@@ -62,4 +62,6 @@ textarea {
 
 .save-btn {
   width: 90%;
+  background-color: #1296DB;
+  color: #fff;
 }

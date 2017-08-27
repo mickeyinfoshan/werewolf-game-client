@@ -6,9 +6,12 @@
     width: 100%;
     left: 0;
     top: 0;
-    font-family: 微软雅黑;
     max-width: 100%;
     overflow-x: hidden;
+}
+
+view, text, input, textarea, .text-input {
+  font-family: 微软雅黑;
 }
 
 /**gameitem, gameplace component style**/
@@ -59,7 +62,7 @@
 .game-text-wrapper {
     flex: 3;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
     padding: 0.4em;
@@ -70,7 +73,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-    flex: 3;
+    flex: 1;
     line-height: 1;
 }
 
@@ -80,11 +83,18 @@
 
 .game-name {
     font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .game-time, .game-address {
     font-size: 0.8rem;
-    line-height: 1.4;
+    line-height: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .game-players {
@@ -93,6 +103,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    line-height: 1;
+    margin-top: 1rem;
 }
 
 .game-players-in-green {
@@ -101,7 +113,7 @@
 
 .game-text-right {
     display: flex;
-    flex: 2;
+    /* flex: 2; */
     flex-direction: column;
     text-align: right;
     justify-content: space-between;
@@ -191,4 +203,29 @@
 
 .game-img, .game-nickname {
   display: inline-block;
+}
+
+.game-players-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+
+.game-text-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+
+.game-name-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 5px;
+}
+
+.game-text-top {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
 }

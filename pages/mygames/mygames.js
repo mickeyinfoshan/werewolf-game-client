@@ -65,8 +65,9 @@ Page({
     app.requestWithOpenID({
       url: "/games/entrance",
       success: games => {
-        this.setData({games})
+        this.setData({games:games.map(app.initGameItem)})
       }
     })
   },
+  toGameDetail: app.toGameDetail,
 })

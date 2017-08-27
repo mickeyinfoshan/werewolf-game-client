@@ -7,9 +7,9 @@
     justify-content: center;
     height: 8em;
     /*background-color: rgb(44, 152, 240);*/
-    background-color: #333;
+    background-color: #1296DB;
     position: relative;
-    padding-bottom: 2em;
+    /* padding-bottom: 2em; */
     /* background-image: url(http://media02.hongkiat.com/dark-wallpapers-2012/Mystery-Face.jpg); */
     border-bottom: solid 0.1em #ddd;
     margin-bottom: 0.3em;
@@ -67,8 +67,32 @@
   background: #fff;
   padding: 0.5rem;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .row > label {
   font-size: 1rem;
+}
+
+.row-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.row-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+.set-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 1rem;
+  height: 1rem;
 }

@@ -8,9 +8,9 @@
     </view>
     <view class="header-text" bindtap="toggleAreaList">
         {{selectedArea.area_name || "暂无数据"}}
-        <text wx:if="{{!showAreaList}}">▾</text>
-        <text wx:if="{{showAreaList}}">▴</text>
-
+        <!-- <text wx:if="{{!showAreaList}}">▾</text>
+        <text wx:if="{{showAreaList}}">▴</text> -->
+        <image src="../assets/images/index_nav_right.png" class="place-list-button-icon"></image>
     </view>
     <view class="place-list" wx:if="{{showAreaList && areas.length > 0}}">
       <view class="place-list-item" wx:for="{{areas}}" wx:key="{{item.area_id}}" data-area="{{item}}" bindtap="selectArea" >

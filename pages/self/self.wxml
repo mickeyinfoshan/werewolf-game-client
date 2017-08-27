@@ -2,17 +2,27 @@
 <import src="../../components/gameitem/gameitem.wxml" />
 <view class="container">
     <view class="self-info-block" bindtap="toEdit">
+        <image src="../assets/images/set.png" class="set-icon"></image>
         <image src="{{userInfo.avatarUrl}}" class="self-avatar"></image>
         <text class="self-nickname">{{userInfo.nickName}}</text>
     </view>
 
     <view class="row" bindtap="toMyGames">
-      <label>我报名的</label>
+      <view class="row-left">
+        <image src="../assets/images/myactivity.png" class="row-icon"></image>
+        <label>我报名的</label>
+      </view>
     </view>
     <view class="row" bindtap="toAddGame">
-      <label>发起活动</label>
+      <view class="row-left">
+        <image src="../assets/images/createactivity.png" class="row-icon"></image>
+        <label>发起活动</label>
+      </view>
     </view>
     <view class="row">
-      <label>关于我们</label>
+      <view class="row-left">
+        <image src="../assets/images/aboutus.png" class="row-icon"></image>
+        <label>关于我们</label>
+      </view>
     </view>
 </view>

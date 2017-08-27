@@ -42,6 +42,6 @@
   </view>
   
   <view class="save-btn-wrapper">
-    <button class="save-btn" bindtap="save">创建</button>
+    <button class="save-btn" bindtap="save">保存</button>
   </view>
 </view>

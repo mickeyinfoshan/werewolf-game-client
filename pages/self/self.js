@@ -37,6 +37,9 @@ Page({
       wx.setNavigationBarTitle({
           title: '我的',
       })
+      wx.hideShareMenu({
+        
+      })
     },
 
     /**

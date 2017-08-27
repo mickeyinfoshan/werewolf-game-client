@@ -7,21 +7,36 @@
       <text class="game-nickname">{{nickName}}</text>
     </view>
     <view class="game-text-wrapper">
+      <view class="game-text-top">
       <view class="game-text-left">
-        <text class="game-name">{{game_title}}</text>
-        <text class="game-time">{{startTimeDisplay}}</text>
-        <text class="game-address">{{area_address}}</text>
+        <view class="game-name">
+          <image src="../assets/images/activity_cell_icon.png" class="game-name-icon"></image>
+          {{game_title}}
+        </view>
+        <view class="game-time">
+          <image src="../assets/images/time.png" class="game-text-icon"></image>
+          {{startTimeDisplay}}
+        </view>
+        <view class="game-address">
+          <image src="../assets/images/location.png" class="game-text-icon"></image>
+          {{area_address}}
+        </view>
         
       </view>
       <view class="game-text-right">
         <text class="game-price">￥{{game_cost}}</text>
+         
+      </view>
+      </view>      
+      <view class="game-text-bottom">
         <view class="game-players">
+           <image class="game-players-icon" src="../assets/images/index_member_count.png"></image>
           <text class="game-p layers-label">车队: </text>
           <view class="game-playlers-number">
             <text class="game-players-in-green">{{entranced_count || 0}}</text>
             <text>/{{member_count}}</text>
           </view>
-        </view>  
+        </view> 
       </view>
     </view>
   </view>

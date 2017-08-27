@@ -14,15 +14,22 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarTitleText": "狼人杀组局小程序",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#1296DB",
+    "backgroundColor": "#eeeeee"
   },
   "tabBar": {
+    "selectedColor": "#1296DB",
     "list": [{
       "pagePath": "pages/gamelist/gamelist",
-      "text": "首页"
+      "text": "首页",
+      "iconPath": "pages/assets/images/location.png",
+      "selectedIconPath": "pages/assets/images/tab_home_selected.png"
     }, {
       "pagePath": "pages/self/self",
-      "text": "我的"
+      "text": "我的",
+      "iconPath":"pages/assets/images/tab_mine_unselect.png",
+      "selectedIconPath": "pages/assets/images/tab_mine_select.png"
     }]
   }
 }

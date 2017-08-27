@@ -2,40 +2,46 @@
 <import src="../../components/gameplace/gameplace.wxml" />
 <view class="container game-detail-container">
   <template is="place" data="{{...gameDetail.area, introTruncate}}" />
-  <view class="block-label-wrapper">
+  <!-- <view class="block-label-wrapper">
     <text class="block-label">组局信息</text>
-  </view>
+  </view> -->
   <view class="block-wrapper has-shadow-block">
     <view class="judge-row">
-        <image src="{{gameDetail.judge.avatarUrl}}" class="judge-avatar"></image>
-        <label>狼法官：</label>
-        <view class="judge-nickname">{{gameDetail.judge.nickName}}</view>
+      <image src="{{gameDetail.judge.avatarUrl}}" class="judge-avatar"></image>
+      <label>狼法官：</label>
+      <view class="judge-nickname">{{gameDetail.judge.nickName}}</view>
     </view>
     <view class="detail-info-row">
       <view class="detail-info-col">
-        <text class="detail-info-label">时间: </text>
+        <image src="../assets/images/time.png" class="detail-info-icon"></image>
+        <view class="detail-info-label">时间: </view>
         <view class="detail-info-value">2017.7.1 13:00</view>
       </view>
     </view>
     <view class="detail-info-row">
       <view class="detail-info-col">
-        <text class="detail-info-label">费用: </text>
+        <image src="../assets/images/cost.png" class="detail-info-icon"></image>
+        <view class="detail-info-label">费用: </view>
         <view class="detail-info-value">{{gameDetail.game_cost}}</view>
       </view>
     </view>
     <view class="detail-info-row">
       <view class="detail-info-col">
-        <text class="detail-info-label">活动公告: </text>
+        <image src="../assets/images/notification.png" class="detail-info-icon"></image>
+        <view class="detail-info-label">活动公告: </view>
         <view class="detail-info-value">{{gameDetail.game_description}}</view>
       </view>
     </view>
   </view>
   <view class="block-label-wrapper">
-    <text class="block-label">演员表</text>
+    <view class="block-label">
+      <image src="../assets/images/memberlist.png" class="block-label-icon"></image>
+      演员表
+    </view>
     <text class="block-label">{{gameDetail.entrances.length}}/12</text>
   </view>
   <view class="block-wrapper has-shadow-block player-list">
-    <view class="player-item" wx:for="{{gameDetail.entrances}}">
+    <view class="player-item" wx:for="{{gameDetail.entrances}}" wx:key="{{item.openid}}">
       <view class="player-avatar-wrapper">
         <image src="{{item.avatarUrl}}" class="player-avatar"></image>
       </view>
@@ -53,17 +59,17 @@
   </view>
   <view class="bottom">
     <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0}}">
-      <button class="action-button">
+      <button class="action-button entrance-button">
         我要报名
       </button>
     </view>
     <view class="action-button-wrapper" bindtap="pay" wx:if="{{gameDetail.user_status == 0}}">
-      <button class="action-button">
+      <button class="action-button pay-button">
         支付
       </button>
     </view>
     <view class="action-button-wrapper" bindtap="cancelEntrance" wx:if="{{gameDetail.user_status >= 0 && gameDetail.status == 0}}">
-      <button class="action-button">
+      <button class="action-button cancel-button">
         取消报名
       </button>
     </view>

@@ -60,10 +60,12 @@ textarea {
 
 .save-btn {
   width: 90%;
+  background-color: #1296DB;
+  color: #fff;
 }
 
 .gender-male {
-  color: blue;
+  color: #1296DB;
 }
 
 .gender-female {

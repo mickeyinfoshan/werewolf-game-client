@@ -95,7 +95,9 @@ Page({
       url: `/games/${this.gameID}`,
       success: data => {
         that.setData({
-          gameDetail: data,
+          gameDetail: Object.assign({}, data, {
+            displayTime: this.getDisplayTime(data)
+          })
         })
         wx.setNavigationBarTitle({
             title: data.game_title,
@@ -138,5 +140,12 @@ Page({
       prepay_id,
       complete: () => this.fetchGameDetail()
     })
+  },
+  getDisplayTime: function(gameDetail) {
+    if(!gameDetail || !gameDetail.start_time) {
+      return ""
+    }
+    let dt = new Date(gameDetail.start_time)
+    return `${dt.getFullYear()}年${dt.getMonth()+1}月${dt.getDate()}日 ${dt.getHours()}:${dt.getMinutes()}`
   }
 })

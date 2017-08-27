@@ -15,7 +15,7 @@
       <view class="detail-info-col">
         <image src="../assets/images/time.png" class="detail-info-icon"></image>
         <view class="detail-info-label">时间: </view>
-        <view class="detail-info-value">2017.7.1 13:00</view>
+        <view class="detail-info-value">{{gameDetail.displayTime}}</view>
       </view>
     </view>
     <view class="detail-info-row">

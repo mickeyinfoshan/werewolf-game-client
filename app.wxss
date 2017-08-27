@@ -186,10 +186,9 @@ view, text, input, textarea, .text-input {
 }
 
 .game-nickname {
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   white-space: nowrap;
   overflow: hidden;
-  width: 80%;
   text-overflow: ellipsis;
   color: #fff;
   margin-top: 16px;

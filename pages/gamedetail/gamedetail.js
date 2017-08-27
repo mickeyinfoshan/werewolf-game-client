@@ -13,6 +13,7 @@ Page({
     introTruncate: true,
     hasEntrance: false,
     nickName: "",
+    now : (new Date()).getTime(),
   },
 
   /**

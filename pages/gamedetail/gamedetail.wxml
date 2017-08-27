@@ -57,7 +57,7 @@
   <view class="block-wrapper has-shadow-block block-announcement">
     <text class="announcement-text">{{gameDetail.game_notification}}</text>
   </view>
-  <view class="bottom">
+  <view class="bottom" wx:if="{{gameDetail.start_time > now}}">
     <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0}}">
       <button class="action-button entrance-button">
         我要报名

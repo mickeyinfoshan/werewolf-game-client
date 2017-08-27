@@ -4,7 +4,7 @@
     <view class="game-img-wrapper">
       <image src="{{avatarUrl}}" class="game-avatar" wx:if="{{avatarUrl}}"></image>
       <image src="../assets/images/default.png" class="game-img default-img" wx:if="{{!avatarUrl}}"></image>
-      <text class="game-nickname">{{nickName}}</text>
+      <view class="game-nickname">{{nickName}}</view>
     </view>
     <view class="game-text-wrapper">
       <view class="game-text-top">

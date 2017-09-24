@@ -13,16 +13,16 @@
         <label>我报名的</label>
       </view>
     </view>
-    <view class="row" bindtap="toAddGame">
+    <view class="row" bindtap="toAddGame" wx:if="userInfo.permission == 2">
       <view class="row-left">
         <image src="../assets/images/createactivity.png" class="row-icon"></image>
         <label>发起活动</label>
       </view>
     </view>
-    <view class="row">
+    <!-- <view class="row">
       <view class="row-left">
         <image src="../assets/images/aboutus.png" class="row-icon"></image>
         <label>关于我们</label>
       </view>
-    </view>
+    </view> -->
 </view>

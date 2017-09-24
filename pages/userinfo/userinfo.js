@@ -24,14 +24,17 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        app.getUserInfo(data => this.setData(data))
+        // app.getUserInfo(data => this.setData(data))
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      // app.getUserInfo(data => this.setData(data))
+      app.login(()=>{
+        app.getUserInfo(data => this.setData(data))
+      })
     },
 
     /**

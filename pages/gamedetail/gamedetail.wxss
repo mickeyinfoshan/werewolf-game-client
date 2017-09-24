@@ -70,7 +70,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 5em;
+    width: 3.6rem;
 }
 
 .player-avatar {
@@ -103,8 +103,12 @@
 }
 
 .announcement-text {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #999;
+}
+
+.annoucement-text-paragraph {
+  margin-bottom: 10px;
 }
 
 .charge-avatar {
@@ -168,7 +172,7 @@
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
-  padding-top: 10px;
+  /* padding-top: 10px; */
 }
 
 .judge-row > label {
@@ -219,4 +223,8 @@
   height: 1rem;
   margin-right: 10px;
   opacity: 0.21;
+}
+
+.judge-block {
+  padding: 10px 20px;
 }

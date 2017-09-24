@@ -15,7 +15,7 @@
     <view class="place-list" wx:if="{{showAreaList && areas.length > 0}}">
       <view class="place-list-item" wx:for="{{areas}}" wx:key="{{item.area_id}}" data-area="{{item}}" bindtap="selectArea" >
         <text class="place-list-item-text">{{item.area_name}}</text>
-        <icon type="success_no_circle" class="selected-icon" wx:if="{{selectedArea && selectedArea.area_id === item.area_id}}" />
+        <!-- <icon type="success_no_circle" class="selected-icon" wx:if="{{selectedArea && selectedArea.area_id === item.area_id}}" /> -->
       </view>
     </view>
   </view>

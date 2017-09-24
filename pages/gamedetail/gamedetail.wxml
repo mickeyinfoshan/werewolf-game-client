@@ -5,7 +5,7 @@
   <!-- <view class="block-label-wrapper">
     <text class="block-label">组局信息</text>
   </view> -->
-  <view class="block-wrapper has-shadow-block">
+  <view class="block-wrapper has-shadow-block judge-block">
     <view class="judge-row">
       <image src="{{gameDetail.judge.avatarUrl}}" class="judge-avatar"></image>
       <label>狼法官：</label>
@@ -55,9 +55,19 @@
     <text class="block-label">报名须知</text>
   </view>
   <view class="block-wrapper has-shadow-block block-announcement">
-    <text class="announcement-text">{{gameDetail.game_notification}}</text>
+    <view class="announcement-text">
+      <view class="annoucement-text-paragraph">
+        1.谢绝空降！谢绝鸽子王！谢绝迟到大王！迟到15分钟以上玩家不能获得神之眼奖励，但可参与神之眼精彩环节。
+      </view>
+      <view class="annoucement-text-paragraph">
+        2.费用为提前收取，未缴费即视为未报名。缴费不来者，不予退还，亦不能挪用其他场次。若不能到场请提前取消报名。
+      </view>
+      <view class="annoucement-text-paragraph">
+        3.纯新手和小白可以关注一下视频节目：panda kill、lying man、pkiller、PLU、饭局的诱惑。
+      </view>
+    </view>
   </view>
-  <view class="bottom" wx:if="{{gameDetail.start_time > now}}">
+  <view class="bottom" wx:if="{{gameDetail.start_time > now && gameDetail.judge.openid !== userInfo.openid}}">
     <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0}}">
       <button class="action-button entrance-button">
         我要报名

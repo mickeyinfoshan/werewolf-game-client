@@ -66,6 +66,8 @@ view, text, input, textarea, .text-input {
     align-items: stretch;
     justify-content: space-between;
     padding: 0.4em;
+    max-width: 80%;
+    overflow-x: hidden;
 }
 
 .game-text-left {
@@ -75,6 +77,7 @@ view, text, input, textarea, .text-input {
     justify-content: flex-start;
     flex: 1;
     line-height: 1;
+    max-width: 75%;
 }
 
 .game-text-left>text {
@@ -91,10 +94,15 @@ view, text, input, textarea, .text-input {
 .game-time, .game-address {
     font-size: 0.8rem;
     line-height: 1;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     align-items: center;
     margin-top: 10px;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+     white-space: nowrap; 
+     max-width: 100%;
+      display: inline-block;  
 }
 
 .game-players {
@@ -131,6 +139,7 @@ view, text, input, textarea, .text-input {
 
 .game-place {
     margin-bottom: 0.3em;
+    align-items: center;
 }
 
 .place-text-wrapper {
@@ -140,7 +149,7 @@ view, text, input, textarea, .text-input {
     justify-content: flex-start;
     padding: 0.5em;
     color: #666;
-     width: 100%; 
+     width: 75%; 
 }
 
 .place-intro {
@@ -160,13 +169,19 @@ view, text, input, textarea, .text-input {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 50%;
+    width: 80%;
 }
 
 .place-address {
     font-size: 1rem;
     margin-bottom: 0.8em;
     margin-top: 0.5em;
+    /* white-space: nowrap; */
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    /* flex: 1; */
+    display: inline-block;
+    max-width: 100%;
 }
 
 .has-shadow-block {
@@ -227,4 +242,9 @@ view, text, input, textarea, .text-input {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+}
+
+.place-img {
+  transform: rotate(-90deg);
+  border-radius: 10px;
 }

@@ -43,7 +43,8 @@ App({
         let createTime = new Date(item.create_time);
         let startTimeDisplay = `${startTime.getFullYear()}/${startTime.getMonth() + 1}/${startTime.getDate()} ${startTime.getHours()}:${startTime.getMinutes()}`
         let createTimeDisplay = `${createTime.getMonth()}/${createTime.getDate()}`
-        return Object.assign({}, item, { startTimeDisplay, createTimeDisplay })
+        let entranced_count = item.entranced_count > 6 ? item.entranced_count : item.entranced_count + 1
+        return Object.assign({}, item, { startTimeDisplay, createTimeDisplay, entranced_count})
     },
     toGameDetail: function (e) {
         let {

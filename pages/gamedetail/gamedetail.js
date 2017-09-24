@@ -94,9 +94,20 @@ Page({
     app.requestWithOpenID({
       url: `/games/${this.gameID}`,
       success: data => {
+        let entrances = data.entrances
+        if(entrances.length < 6 && data.judge) {
+          entrances = entrances.concat([data.judge])
+          entrances = entrances.reduce((prev, curr)=>{
+            if(prev.filter(item => item.openid == curr.openid).length === 0) {
+              return prev.concat([curr])
+            }
+            return prev.slice(0)
+          }, [])
+        }
         that.setData({
           gameDetail: Object.assign({}, data, {
-            displayTime: this.getDisplayTime(data)
+            displayTime: this.getDisplayTime(data),
+            entrances,
           })
         })
         wx.setNavigationBarTitle({

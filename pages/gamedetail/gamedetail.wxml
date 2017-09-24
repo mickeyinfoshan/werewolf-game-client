@@ -90,7 +90,7 @@
         报名已截止
       </button>
     </view>
-    <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0 && gameDetail.start_time > now}} && gameDetail.judge.openid !== userInfo.openid">
+    <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0 && gameDetail.start_time > now && gameDetail.judge.openid !== userInfo.openid}}">
       <button class="action-button entrance-button">
         我要报名
       </button>

@@ -2,14 +2,37 @@
 <import src="../../components/gameplace/gameplace.wxml" />
 <view class="container game-detail-container">
   <template is="place" data="{{...gameDetail.area, introTruncate}}" />
-  <!-- <view class="block-label-wrapper">
+  <view class="block-label-wrapper">
+    <view class="block-label">
+      <image src="../assets/images/memberlist.png" class="block-label-icon"></image>
+      演员表
+    </view>
+    <text class="block-label">{{gameDetail.entrances.length}}/12</text>
+  </view>
+  <view class="block-wrapper has-shadow-block player-list">
+    <view class="player-item" wx:for="{{gameDetail.entrances}}" wx:key="{{item.openid}}">
+      <view class="player-avatar-wrapper">
+        <image src="{{item.avatarUrl}}" class="player-avatar"></image>
+      </view>
+      <!-- <view class="player-info-wrapper">
+                <view class="player-name">{{item.nickName}}</view>
+                <text class="player-gender gender-male">♂</text>
+            </view> -->
+    </view>
+  </view>
+  <view class="block-label-wrapper">
     <text class="block-label">组局信息</text>
-  </view> -->
+  </view>
   <view class="block-wrapper has-shadow-block judge-block">
-    <view class="judge-row">
-      <image src="{{gameDetail.judge.avatarUrl}}" class="judge-avatar"></image>
-      <label>狼法官：</label>
-      <view class="judge-nickname">{{gameDetail.judge.nickName}}</view>
+    <view class='detail-header-row'>
+      <view class="judge-row">
+        <image src="{{gameDetail.judge.avatarUrl}}" class="judge-avatar"></image>
+        <label>狼法官：</label>
+        <view class="judge-nickname">{{gameDetail.judge.nickName}}</view>
+      </view>
+      <view class='special-operations-container' wx:if='{{gameDetail.start_time > now && (gameDetail.judge.openid === userInfo.openid || gameDetail.creater_id === userInfo.openid)}}'>
+        <view class='cancel-button special-operation-button' bindtap='cancelGame'>翻车</view>
+      </view>
     </view>
     <view class="detail-info-row">
       <view class="detail-info-col">
@@ -33,24 +56,7 @@
       </view>
     </view>
   </view>
-  <view class="block-label-wrapper">
-    <view class="block-label">
-      <image src="../assets/images/memberlist.png" class="block-label-icon"></image>
-      演员表
-    </view>
-    <text class="block-label">{{gameDetail.entrances.length}}/12</text>
-  </view>
-  <view class="block-wrapper has-shadow-block player-list">
-    <view class="player-item" wx:for="{{gameDetail.entrances}}" wx:key="{{item.openid}}">
-      <view class="player-avatar-wrapper">
-        <image src="{{item.avatarUrl}}" class="player-avatar"></image>
-      </view>
-      <!-- <view class="player-info-wrapper">
-                <view class="player-name">{{item.nickName}}</view>
-                <text class="player-gender gender-male">♂</text>
-            </view> -->
-    </view>
-  </view>
+
   <view class="block-label-wrapper">
     <text class="block-label">报名须知</text>
   </view>
@@ -60,25 +66,36 @@
         1.谢绝空降！谢绝鸽子王！谢绝迟到大王！迟到15分钟以上玩家不能获得神之眼奖励，但可参与神之眼精彩环节。
       </view>
       <view class="annoucement-text-paragraph">
-        2.费用为提前收取，未缴费即视为未报名。缴费不来者，不予退还，亦不能挪用其他场次。若不能到场请提前取消报名。
+        2.
+        <text class='red-text'>费用为提前收取，报名后15分钟内未支付费用则自动取消报名。</text>缴费不来者，不予退还，亦不能挪用其他场次。若不能到场请提前取消报名。
       </view>
       <view class="annoucement-text-paragraph">
         3.纯新手和小白可以关注一下视频节目：panda kill、lying man、pkiller、PLU、饭局的诱惑。
       </view>
     </view>
   </view>
-  <view class="bottom" wx:if="{{gameDetail.start_time > now && gameDetail.judge.openid !== userInfo.openid}}">
-    <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0}}">
+  <view class="bottom">
+    <view class='action-button-wrapper' wx-if='{{gameDetail.status === 3}}'>
+      <button class='action-button' disabled='true'>
+        已翻车
+      </button>
+    </view>
+    <view class='action-button-wrapper' wx-if='{{gameDetail.status !== 3 && gameDetail.start_time < now}}'>
+      <button class='action-button' disabled='true'>
+        活动已结束
+      </button>
+    </view>
+    <view class="action-button-wrapper" bindtap="entranceAction" wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status == 0 && gameDetail.start_time > now}}">
       <button class="action-button entrance-button">
         我要报名
       </button>
     </view>
-    <view class="action-button-wrapper" bindtap="pay" wx:if="{{gameDetail.user_status == 0}}">
+    <view class="action-button-wrapper" bindtap="pay" wx:if="{{gameDetail.user_status == 0 && gameDetail.start_time > now && (gameDetail.status === 0 || gameDetail.status === 1)}}">
       <button class="action-button pay-button">
         支付
       </button>
     </view>
-    <view class="action-button-wrapper" bindtap="cancelEntrance" wx:if="{{gameDetail.user_status >= 0 && gameDetail.status == 0}}">
+    <view class="action-button-wrapper" bindtap="cancelEntrance" wx:if="{{gameDetail.user_status >= 0 && (gameDetail.status === 1 || gameDetail.status === 0) && gameDetail.start_time > now}}">
       <button class="action-button cancel-button">
         取消报名
       </button>

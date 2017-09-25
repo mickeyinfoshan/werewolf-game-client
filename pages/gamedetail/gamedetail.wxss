@@ -247,3 +247,12 @@
    padding: 0.3rem 0.6rem;
    font-size: 0.6rem;
 }
+
+.game-ended {
+  background-color: #9a9a9a;
+  color: #fff;
+}
+
+.game-cancel-button {
+  background-color: #ff8711;
+}

@@ -31,7 +31,7 @@
         <view class="judge-nickname">{{gameDetail.judge.nickName}}</view>
       </view>
       <view class='special-operations-container' wx:if='{{gameDetail.start_time > now && (gameDetail.judge.openid === userInfo.openid || gameDetail.creater_id === userInfo.openid)}}'>
-        <view class='cancel-button special-operation-button' bindtap='cancelGame'>翻车</view>
+        <view class='cancel-button special-operation-button game-cancel-button' bindtap='cancelGame'>翻车</view>
       </view>
     </view>
     <view class="detail-info-row">
@@ -76,17 +76,17 @@
   </view>
   <view class="bottom">
     <view class='action-button-wrapper' wx-if='{{gameDetail.status === 3}}'>
-      <button class='action-button' disabled='true'>
-        已翻车
+      <button class='action-button game-cancel-button'>
+        活动翻车
       </button>
     </view>
     <view class='action-button-wrapper' wx-if='{{gameDetail.status !== 3 && gameDetail.start_time < now}}'>
-      <button class='action-button' disabled='true'>
-        活动已结束
+      <button class='action-button game-ended'>
+        活动结束
       </button>
     </view>
     <view class='action-button-wrapper' wx:if="{{(gameDetail.user_status < 0 || gameDetail.user_status == 2) && gameDetail.status === 1 && gameDetail.start_time > now}}">
-      <button class='action-button' disabled='true'>
+      <button class='action-button game-ended'>
         报名已截止
       </button>
     </view>
